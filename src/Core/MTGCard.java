@@ -24,141 +24,166 @@ public class MTGCard {
         Colorless
     }
 
-    private String m_Name;
-    private String m_Set;
-    private String m_Description;
-    private String m_ManaCost;
-    private String m_SubType;
-    private String m_Artist;
-    private Integer m_CMC;
-    private Integer m_UID;
-    private Integer m_Number;
-    private E_CardTypes m_Type;
-    private E_Colors[] m_Colors;
-    private boolean m_IsPermament;
-    private boolean m_IsLegendary;
-    private BufferedImage m_Image;
+    private String artist;
+    private int cmc;
+    private String colorIdentity[];
+    private String flavour;
+    private String id;
+    private String layout;
+    private String manaCost;
+    private String mciNumber;
+    private int multiverseid;
+    private String name;
+    private String number;
+    private String power;
+    private String rarity;
+    private String[] subtypes;
+    private String text;
+    private String toughness;
+    private String type;
+    private String[] types;
 
-    public String getM_Name() {
-        return m_Name;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setM_Name(String m_Name) {
-        this.m_Name = m_Name;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
-    public String getM_Set() {
-        return m_Set;
+    public int getCmc() {
+        return cmc;
     }
 
-    public void setM_Set(String m_Set) {
-        this.m_Set = m_Set;
+    public void setCmc(int cmc) {
+        this.cmc = cmc;
     }
 
-    public String getM_Description() {
-        return m_Description;
+    public String[] getColorIdentity() {
+        return colorIdentity;
     }
 
-    public void setM_Description(String m_Description) {
-        this.m_Description = m_Description;
+    public void setColorIdentity(String[] colorIdentity) {
+        this.colorIdentity = colorIdentity;
     }
 
-    public String getM_ManaCost() {
-        return m_ManaCost;
+    public String getFlavour() {
+        return flavour;
     }
 
-    public void setM_ManaCost(String m_ManaCost) {
-        this.m_ManaCost = m_ManaCost;
+    public void setFlavour(String flavour) {
+        this.flavour = flavour;
     }
 
-    public String getM_SubType() {
-        return m_SubType;
+    public String getId() {
+        return id;
     }
 
-    public void setM_SubType(String m_SubType) {
-        this.m_SubType = m_SubType;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getM_Artist() {
-        return m_Artist;
+    public String getLayout() {
+        return layout;
     }
 
-    public void setM_Artist(String m_Artist) {
-        this.m_Artist = m_Artist;
+    public void setLayout(String layout) {
+        this.layout = layout;
     }
 
-    public Integer getM_CMC() {
-        return m_CMC;
+    public String getManaCost() {
+        return manaCost;
     }
 
-    public void setM_CMC(Integer m_CMC) {
-        this.m_CMC = m_CMC;
+    public void setManaCost(String manaCost) {
+        this.manaCost = manaCost;
     }
 
-    public Integer getM_UID() {
-        return m_UID;
+    public String getMciNumber() {
+        return mciNumber;
     }
 
-    public void setM_UID(Integer m_UID) {
-        this.m_UID = m_UID;
+    public void setMciNumber(String mciNumber) {
+        this.mciNumber = mciNumber;
     }
 
-    public Integer getM_Number() {
-        return m_Number;
+    public int getMultiverseid() {
+        return multiverseid;
     }
 
-    public void setM_Number(Integer m_Number) {
-        this.m_Number = m_Number;
+    public void setMultiverseid(int multiverseid) {
+        this.multiverseid = multiverseid;
     }
 
-    public E_CardTypes getM_Type() {
-        return m_Type;
+    public String getName() {
+        return name;
     }
 
-    public void setM_Type(E_CardTypes m_Type) {
-        this.m_Type = m_Type;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public E_Colors[] getM_Colors() {
-        return m_Colors;
+    public String getNumber() {
+        return number;
     }
 
-    public void setM_Colors(E_Colors[] m_Colors) {
-        this.m_Colors = m_Colors;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public boolean isM_IsPermament() {
-        return m_IsPermament;
+    public String getPower() {
+        return power;
     }
 
-    public void setM_IsPermament(boolean m_IsPermament) {
-        this.m_IsPermament = m_IsPermament;
+    public void setPower(String power) {
+        this.power = power;
     }
 
-    public boolean isM_IsLegendary() {
-        return m_IsLegendary;
+    public String getRarity() {
+        return rarity;
     }
 
-    public void setM_IsLegendary(boolean m_IsLegendary) {
-        this.m_IsLegendary = m_IsLegendary;
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
     }
 
-    public BufferedImage getM_Image() {
-        return m_Image;
+    public String[] getSubtypes() {
+        return subtypes;
     }
 
-    public void setM_Image(BufferedImage m_Image) {
-        this.m_Image = m_Image;
+    public void setSubtypes(String[] subtypes) {
+        this.subtypes = subtypes;
     }
 
-    public void Load(String a_Name)
-    {
-        // todo
+    public String getText() {
+        return text;
     }
 
-    public void Load(String a_Name, String a_Set)
-    {
-        // todo
+    public void setText(String text) {
+        this.text = text;
     }
 
+    public String getToughness() {
+        return toughness;
+    }
+
+    public void setToughness(String toughness) {
+        this.toughness = toughness;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String[] getTypes() {
+        return types;
+    }
+
+    public void setTypes(String[] types) {
+        this.types = types;
+    }
 }

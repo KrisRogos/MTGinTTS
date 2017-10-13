@@ -12,5 +12,6 @@
     <orderEntry type="library" name="okio-1.13.0" level="project" />
     <orderEntry type="library" name="gson-2.6.2" level="project" />
     <orderEntry type="library" name="commons-lang3-3.6-javadoc" level="project" />
+    <orderEntry type="library" name="java-json" level="project" />
   </component>
 </module>

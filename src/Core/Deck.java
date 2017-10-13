@@ -1,7 +1,5 @@
 package Core;
 
-import io.magicthegathering.javasdk.api.CardAPI;
-import io.magicthegathering.javasdk.resource.Card;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import javax.imageio.ImageIO;
@@ -22,7 +20,7 @@ public class Deck {
     private int kHeight = 311*7;
 
     public class S_DeckCard {
-        public Card card;
+        public MTGCard card;
         public Integer count;
     }
 
@@ -30,9 +28,12 @@ public class Deck {
     private int m_DeckSize;
     private BufferedImage m_Image;
 
+    //private DeckLoader m_DeckLoader;
+
     public Deck(String a_DeckFile) {
 
         m_Cards = new Vector<S_DeckCard>();
+//        m_DeckLoader = new DeckLoader();
         m_DeckSize = 0;
 
         System.out.println("Loading " + a_DeckFile + " ...");
@@ -68,7 +69,7 @@ public class Deck {
         int xLoc = 0, yLoc = 0;
         for (int i = 0; i < m_Cards.size(); i++)
         {
-            GetCardImage(g, xLoc, yLoc, i);
+            //GetCardImage(g, xLoc, yLoc, i);
 
             // next column
             xLoc++;
@@ -103,11 +104,11 @@ public class Deck {
             //File f = new File(m_Cards.elementAt(id).card.getImageUrl());
 
             System.out.println("Drawing image for " + m_Cards.elementAt(id).card.getName());
-            URL url = new URL (m_Cards.elementAt(id).card.getImageUrl());
-            BufferedImage cardImage = ImageIO.read(url);
+            //URL url = new URL (m_Cards.elementAt(id).card.);
+            //BufferedImage cardImage = ImageIO.read(url);
 
-            g.drawImage(cardImage, xLoc * kWidth, yLoc * kHeight, null);
-        } catch (IOException e) {
+            //g.drawImage(cardImage, xLoc * kWidth, yLoc * kHeight, null);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -156,7 +157,7 @@ public class Deck {
     public void AddCard (Integer a_Count, String a_Name)
     {
         S_DeckCard dc = new S_DeckCard();
-        dc.card = CardAPI.getCard(a_Name);
+        dc.card = DeckLoader.LoadCard(a_Name);
         dc.count = a_Count;
 
         m_Cards.add(dc);
