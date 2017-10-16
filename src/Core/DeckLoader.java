@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.stream.JsonReader;
 
 public class DeckLoader {
@@ -17,8 +18,10 @@ public class DeckLoader {
     // read in the json file as stream
     public static MTGCard LoadCard(String name)
     {
+        String fName = "res/AllSets.json";
+
         try {
-            InputStream st = new FileInputStream(FILENAME);
+            InputStream st = new FileInputStream(fName);
 
             JsonReader reader = new JsonReader(new InputStreamReader(st, "UTF-8"));
             Gson gson = new GsonBuilder().create();
