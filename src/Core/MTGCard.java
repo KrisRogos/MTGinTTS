@@ -27,7 +27,7 @@ public class MTGCard {
     private String artist;
     private int cmc;
     private String colorIdentity[];
-    private String flavour;
+    private String flavor;
     private String id;
     private String layout;
     private String manaCost;
@@ -40,6 +40,16 @@ public class MTGCard {
     private String[] subtypes;
     private String text;
     private String toughness;
+
+    public int getLoyalty() {
+        return loyalty;
+    }
+
+    public void setLoyalty(int loyalty) {
+        this.loyalty = loyalty;
+    }
+
+    private int loyalty;
     private String type;
     private String[] types;
 
@@ -68,11 +78,11 @@ public class MTGCard {
     }
 
     public String getFlavour() {
-        return flavour;
+        return flavor;
     }
 
     public void setFlavour(String flavour) {
-        this.flavour = flavour;
+        this.flavor = flavour;
     }
 
     public String getId() {

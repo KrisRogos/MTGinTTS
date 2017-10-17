@@ -9,7 +9,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -28,16 +27,17 @@ public class Deck {
     private int m_DeckSize;
     private BufferedImage m_Image;
 
-    //private DeckLoader m_DeckLoader;
+    //private CardLoader m_DeckLoader;
 
     public Deck(String a_DeckFile) {
 
         m_Cards = new Vector<S_DeckCard>();
-//        m_DeckLoader = new DeckLoader();
+//        m_DeckLoader = new CardLoader();
         m_DeckSize = 0;
 
         System.out.println("Loading " + a_DeckFile + " ...");
 
+        // load lines from file
         List<String > lines = new ArrayList<String>();
         try
         {
@@ -56,6 +56,10 @@ public class Deck {
             e.printStackTrace();;
         }
 
+        // load the card database
+        CardLoader cardLoader = CardLoader.GetDeckLoader();
+
+        // convert the lines into cards
         for (String ln: lines ) {
             ProcessLine(ln);
         }
@@ -157,7 +161,7 @@ public class Deck {
     public void AddCard (Integer a_Count, String a_Name)
     {
         S_DeckCard dc = new S_DeckCard();
-        dc.card = DeckLoader.LoadCard(a_Name);
+        dc.card = CardLoader.LoadCard(a_Name);
         dc.count = a_Count;
 
         m_Cards.add(dc);
