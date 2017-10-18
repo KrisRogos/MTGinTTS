@@ -9,14 +9,18 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
 public class Deck {
 
-    private int kWidth = 223*10;
-    private int kHeight = 311*7;
+    private int kCardWidth = 223;
+    private int kCardHeight = 311;
+
+    private int kWidth = kCardWidth*10;
+    private int kHeight = kCardHeight*7;
 
     public class S_DeckCard {
         public MTGCard card;
@@ -64,8 +68,6 @@ public class Deck {
             ProcessLine(ln);
         }
 
-        // find all cards in deck
-
         // create the deck image
         m_Image = new BufferedImage(kWidth, kHeight, BufferedImage.TYPE_INT_RGB);
 
@@ -75,7 +77,7 @@ public class Deck {
         int xLoc = 0, yLoc = 0;
         for (int i = 0; i < m_Cards.size(); i++)
         {
-            //GetCardImage(g, xLoc, yLoc, i);
+            GetCardImage(g, xLoc, yLoc, i);
 
             // next column
             xLoc++;
@@ -83,7 +85,7 @@ public class Deck {
             // next row
             if (xLoc > 9)
             {
-                xLoc = 1;
+                xLoc = 0;
                 yLoc++;
 
                 // overflow
@@ -110,10 +112,10 @@ public class Deck {
             //File f = new File(m_Cards.elementAt(id).card.getImageUrl());
 
             System.out.println("Drawing image for " + m_Cards.elementAt(id).card.getName());
-            //URL url = new URL (m_Cards.elementAt(id).card.);
-            //BufferedImage cardImage = ImageIO.read(url);
+            URL url = new URL ("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=" + m_Cards.elementAt(id).card.getMultiverseid() + "&type=card");
+            BufferedImage cardImage = ImageIO.read(url);
 
-            //g.drawImage(cardImage, xLoc * kWidth, yLoc * kHeight, null);
+            g.drawImage(cardImage, xLoc * kCardWidth, yLoc * kCardHeight, null);
         } catch (Exception e) {
             e.printStackTrace();
         }

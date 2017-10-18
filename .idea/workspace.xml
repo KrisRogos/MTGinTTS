@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/Deck.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/Deck.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_CardTypes.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_CardTypes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_Colors.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_Colors.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/deck.jpg" afterPath="$PROJECT_DIR$/res/deck.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/CardLoader.java" afterPath="$PROJECT_DIR$/src/Core/CardLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/Deck.java" afterPath="$PROJECT_DIR$/src/Core/Deck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/MTGCard.java" afterPath="$PROJECT_DIR$/src/Core/MTGCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/MTGSet.java" afterPath="$PROJECT_DIR$/src/Core/MTGSet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/MTGSetContainer.java" afterPath="$PROJECT_DIR$/src/Core/MTGSetContainer.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +66,7 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.7804439">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -112,15 +105,25 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Deck.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Deck.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Core/Deck.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="149">
-                  <caret line="109" column="12" lean-forward="true" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+                <state relative-caret-position="248">
+                  <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+                    <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+                    <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
                   </folding>
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="deck.jpg" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/res/deck.jpg">
+              <provider selected="true" editor-type-id="images">
+                <state />
               </provider>
             </entry>
           </file>
@@ -663,7 +666,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508329748830</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[v: 0.0_17-291-1704] Card data is now being found through the deck list">
+      <created>1508342685998</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1508342685998</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -687,7 +697,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10520833" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -718,7 +728,8 @@
     <MESSAGE value="[v: 0.0_17-290-1649] Loading of a single set is now possible, &#10;working on the whole collection" />
     <MESSAGE value="[v: 0.0_17-291-1049] Loading of all sets successful" />
     <MESSAGE value="[v: 0.0_17-291-1329] Sorting of the sets and cards&#10;Sets are sorted by release date and cards in sets by name" />
-    <option name="LAST_COMMIT_MESSAGE" value="[v: 0.0_17-291-1329] Sorting of the sets and cards&#10;Sets are sorted by release date and cards in sets by name" />
+    <MESSAGE value="[v: 0.0_17-291-1704] Card data is now being found through the deck list" />
+    <option name="LAST_COMMIT_MESSAGE" value="[v: 0.0_17-291-1704] Card data is now being found through the deck list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -754,6 +765,9 @@
           <caret line="82" column="29" lean-forward="true" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -803,6 +817,9 @@
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -845,6 +862,9 @@
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -879,6 +899,9 @@
           <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -961,6 +984,9 @@
           <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1028,6 +1054,9 @@
           <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1099,11 +1128,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/AllSets-x.json" />
     <entry file="file://$PROJECT_DIR$/res/AllCards.json" />
-    <entry file="file://$PROJECT_DIR$/res/deck.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/stage/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1214,12 +1238,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="109" column="12" lean-forward="true" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+        <state relative-caret-position="248">
+          <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
+            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/deck.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
