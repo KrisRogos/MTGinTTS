@@ -1,5 +1,6 @@
 package Core;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -34,12 +35,22 @@ public class CardLoader {
 
     private CardLoader() {
         LoadFile();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(MTGSetContainer.class, new MTGSetDeserializer());
+
+        //Gson gson = builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+        Gson gson = builder.setDateFormat("yyyy-mm-dd").create();
+        MTGSetContainer sets = gson.fromJson(k_CardTable, MTGSetContainer.class);
+
+        System.out.println(sets.toString());
+
+       /* Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         Type mapType = new TypeToken<Collection<Map<String, MTGSet>>>() {}.getType();
         Object map = gson.fromJson(k_CardTable, Object.class);
+        */
 
-        System.out.println("hi");
 
         //MTGSetContainer sets = gson.fromJson(k_CardTable, MTGSetContainer.class);
 
@@ -49,8 +60,7 @@ public class CardLoader {
 
         //System.out.println(sets.length);
 
-       /* for (int i = 0; i < sets.length; i++)
-            System.out.println(sets[i].toString());*/
+
     }
 
     private void LoadFile() {
