@@ -1,5 +1,6 @@
 package Core;
 
+import java.util.*;
 import java.util.List;
 
 public class MTGSetContainer {
@@ -17,5 +18,26 @@ public class MTGSetContainer {
         }
 
         return res;
+    }
+
+    public void Sort() {
+        Collections.sort(mtgSets, new MTGSet());
+    }
+
+
+    public void SortAll() {
+        Sort();
+
+        for (MTGSet set : mtgSets)
+            set.Sort();
+    }
+
+    public MTGCard Find(String name)
+    {
+        for (MTGSet set : mtgSets) {
+            return set.Find("name");
+        }
+
+        return null;
     }
 }

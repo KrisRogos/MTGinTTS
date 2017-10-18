@@ -21,6 +21,7 @@ public class CardLoader {
     private static String k_CardTable;
     private static final String k_FileName = "res/AllSets.json";
     private static CardLoader k_CardLoader;
+    private static MTGSetContainer k_Sets;
 
 
     public static CardLoader GetDeckLoader()
@@ -35,32 +36,24 @@ public class CardLoader {
 
     private CardLoader() {
         LoadFile();
+        ParseCardTable();
 
+//        System.out.println(k_Sets.toString());
+    }
+
+    private void ParseCardTable() {
+        // create a json builder
         GsonBuilder builder = new GsonBuilder();
+
+        // make sure custom deserialization is used
         builder.registerTypeAdapter(MTGSetContainer.class, new MTGSetDeserializer());
 
-        //Gson gson = builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
-        Gson gson = builder.setDateFormat("yyyy-mm-dd").create();
-        MTGSetContainer sets = gson.fromJson(k_CardTable, MTGSetContainer.class);
+        // parse the json file using a custom date format
+        Gson gson = builder.setDateFormat("yyyy-MM-dd").create();
+        k_Sets = gson.fromJson(k_CardTable, MTGSetContainer.class);
 
-        System.out.println(sets.toString());
-
-       /* Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        Type mapType = new TypeToken<Collection<Map<String, MTGSet>>>() {}.getType();
-        Object map = gson.fromJson(k_CardTable, Object.class);
-        */
-
-
-        //MTGSetContainer sets = gson.fromJson(k_CardTable, MTGSetContainer.class);
-
-        //gson.
-
-        //System.out.println(sets.toString());
-
-        //System.out.println(sets.length);
-
-
+        // sort the sets
+        k_Sets.SortAll();
     }
 
     private void LoadFile() {
@@ -85,38 +78,7 @@ public class CardLoader {
     // read in the json file as stream
     public static MTGCard LoadCard(String name)
     {
-
-
-
-
-        /*try {
-            InputStream st = new FileInputStream(fName);
-
-            JsonReader reader = new JsonReader(new InputStreamReader(st, "UTF-8"));
-            Gson gson = new GsonBuilder().create();
-
-            // read in
-            reader.beginArray();
-            while (reader.hasNext())
-            {
-                // read a block of data as object
-                MTGCard card = gson.fromJson(reader, MTGCard.class);
-
-                if (card.getName() == name)
-                {
-                    System.out.println("I found it!");
-                    return card;
-                }
-                break;
-            }
-            reader.close();
-
-        } catch (Exception e) {
-            System.err.format("Error occurred while looking for a card named %s.", name);
-            e.printStackTrace();;
-        }*/
-
-        return null;
+        return k_Sets.Find(name);
     }
 
 }

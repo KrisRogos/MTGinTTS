@@ -1,8 +1,19 @@
 package Core;
 
 import java.awt.image.BufferedImage;
+import java.util.Comparator;
 
-public class MTGCard {
+public class MTGCard implements Comparator<MTGCard>, Comparable<MTGCard> {
+
+    @Override
+    public int compare(MTGCard o1, MTGCard o2) throws NullPointerException, ClassCastException {
+        return o1.getName().compareToIgnoreCase(o2.getName());
+    }
+
+    @Override
+    public int compareTo(MTGCard o) throws NullPointerException, ClassCastException  {
+        return this.getName().compareToIgnoreCase(o.getName());
+    }
 
     public enum  E_CardTypes {
         Land,
@@ -40,6 +51,11 @@ public class MTGCard {
     private String[] subtypes;
     private String text;
     private String toughness;
+    private int loyalty;
+    private String type;
+    private String[] types;
+
+
 
     public int getLoyalty() {
         return loyalty;
@@ -48,10 +64,6 @@ public class MTGCard {
     public void setLoyalty(int loyalty) {
         this.loyalty = loyalty;
     }
-
-    private int loyalty;
-    private String type;
-    private String[] types;
 
     public String getArtist() {
         return artist;
