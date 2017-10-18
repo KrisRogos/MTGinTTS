@@ -33,7 +33,10 @@ public class Deck {
 
     //private CardLoader m_DeckLoader;
 
-    public Deck(String a_DeckFile) {
+    public Deck(String a_DeckName) {
+
+        String deckFile = "res/" + a_DeckName + ".txt";
+        String imageFile = "res/" + a_DeckName + ".jpg";
 
         m_Cards = new Vector<S_DeckCard>();
         m_DeckSize = 0;
@@ -42,13 +45,13 @@ public class Deck {
         CardLoader cardLoader = CardLoader.GetDeckLoader();
 
         // load the deck file
-        System.out.println("Loading " + a_DeckFile + " ...");
+        System.out.println("Loading " + deckFile + " ...");
 
         // load lines from file
         List<String > lines = new ArrayList<String>();
         try
         {
-            BufferedReader reader = new BufferedReader(new FileReader(a_DeckFile));
+            BufferedReader reader = new BufferedReader(new FileReader(deckFile));
             String line;
             while ((line = reader.readLine()) != null)
             {
@@ -59,7 +62,7 @@ public class Deck {
         }
         catch (Exception e)
         {
-            System.err.format("Read exception occurred with %s.", a_DeckFile);
+            System.err.format("Read exception occurred with %s.", deckFile);
             e.printStackTrace();;
         }
 
@@ -98,7 +101,7 @@ public class Deck {
 
         // save the image
         try {
-            ImageIO.write(m_Image, "JPG", new File ("res/", "deck.jpg"));
+            ImageIO.write(m_Image, "JPG", new File (imageFile));
             System.out.println("Image saved");
         } catch (IOException e) {
             e.printStackTrace();

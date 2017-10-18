@@ -17,7 +17,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
-        Deck dck = new Deck("res/Deck.txt");
+        Deck dck = new Deck("Deck");
 
     }
 

@@ -1,0 +1,43 @@
+This software is being developed for fun and as a way for me to practice java and javafx. It is provided as is and while I have a list of planned features (listed below) I make no promise or commitment as to which of those will be implemented, when they will be released or that the software will remain available to download in the future.
+
+If you use this app you take all responsibility to breach of terms of service or copyright that might be caused by downloading, using or redistributing images of Maqic cards.
+
+Features complete:
+- Load "Deck.txt"
+- Read up to 70 unique cards from the deck file
+- Combine card scans into a single image and save it as Deck.jpg
+
+Features planned for next release:
+- Save the deck as a .json file ready for use in Tabletop Simulator
+- Allow the user to specify which file to load as decklist
+- Allow the user to specify where to save the .jpg and .json files
+
+Bugs to fix:
+- Cards in sideboard are treated as unique even if they appear in the main deck
+- Load the back of flip-able cards (currently front face loaded only)
+
+Features planned for later releases:
+- Complete gui showing the decklist as loaded
+- Preview of the deck image
+- Support for 70+ unique card decks
+- Ability to chose different set from which to take images
+- Multithreaded card and card image loading
+- Ability to upload custom card images
+- Ability to chose what card data is being saved in the .json file
+- Custom card backs and card in hand graphic
+
+
+Licence and copyright:
+For executables:
+- You are free to download and use the software for personal or educational use.
+- You can share this software only by linking to the original github page: https://github.com/KrisRogos/MTGinTTS
+- You can not reload this software without written permission
+
+For sourcecode:
+- You are free to download, use and compile the code for personal or educational use.
+- You can share modification to the code only by making public Forks of the original github repository: https://github.com/KrisRogos/MTGinTTS
+- If you fork the project you must include the following line in a prominent section of your readme file:
+"This project is based on original work of Kris Rogos, the original project can be found here: https://github.com/KrisRogos/MTGinTTS."
+- You can not profit (though paid access, ad revenue etc.) from any work base on this project in part or as a whole, unless given a specific written permission by me.
+
+© Kris Rogos 2017 (krisrogos@gmail.com)
