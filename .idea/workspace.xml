@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/Deck.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/Deck.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_CardTypes.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_CardTypes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_Colors.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard$E_Colors.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard.class" afterPath="$PROJECT_DIR$/out/production/MTGinTTS/Core/MTGCard.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/CardLoader.java" afterPath="$PROJECT_DIR$/src/Core/CardLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/Deck.java" afterPath="$PROJECT_DIR$/src/Core/Deck.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/MTGCard.java" afterPath="$PROJECT_DIR$/src/Core/MTGCard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/MTGSet.java" afterPath="$PROJECT_DIR$/src/Core/MTGSet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Core/MTGSetContainer.java" afterPath="$PROJECT_DIR$/src/Core/MTGSetContainer.java" />
@@ -20,6 +22,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/MTGinTTS$Main.coverage" NAME="Main Coverage Results" MODIFIED="1508342640303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Core.*</FILTER>
+    </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -84,26 +91,9 @@
           <file leaf-file-name="Deck.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/res/Deck.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+                <state relative-caret-position="238">
+                  <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CardLoader.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Core/CardLoader.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="477">
-                  <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
-                    <element signature="method#ParseCardTable#0;class#CardLoader#0" expanded="false" />
-                    <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
-                    <element signature="e#2244#2245#0" expanded="true" />
-                    <element signature="e#2284#2285#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -111,30 +101,12 @@
           <file leaf-file-name="MTGSet.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Core/MTGSet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="579">
-                  <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+                <state relative-caret-position="588">
+                  <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1061#1062#0" expanded="true" />
                     <element signature="e#1095#1096#0" expanded="true" />
-                    <element signature="e#1135#1136#0" expanded="true" />
-                    <element signature="e#1197#1198#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MTGSetContainer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Core/MTGSetContainer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="629">
-                  <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#163#164#0" expanded="true" />
-                    <element signature="e#198#199#0" expanded="true" />
-                    <element signature="e#404#405#0" expanded="true" />
-                    <element signature="e#459#460#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -143,14 +115,26 @@
           <file leaf-file-name="Deck.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Core/Deck.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="969">
-                  <caret line="59" column="40" lean-forward="false" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+                <state relative-caret-position="149">
+                  <caret line="109" column="12" lean-forward="true" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-                    <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-                    <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-                    <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MTGSetContainer.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Core/MTGSetContainer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="486">
+                  <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#163#164#0" expanded="true" />
+                    <element signature="e#198#199#0" expanded="true" />
+                    <element signature="e#507#508#0" expanded="true" />
+                    <element signature="e#562#563#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -160,9 +144,13 @@
             <entry file="file://$PROJECT_DIR$/src/Core/MTGCard.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="238">
-                  <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+                  <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#557#558#0" expanded="true" />
+                    <element signature="e#584#585#0" expanded="true" />
+                    <element signature="e#1900#1901#0" expanded="true" />
+                    <element signature="e#1957#1958#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -172,24 +160,31 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="KTK.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/KTK.json">
+          <file leaf-file-name="CardLoader.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Core/CardLoader.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+                <state relative-caret-position="599">
+                  <caret line="57" column="10" lean-forward="false" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
                   <folding>
-                    <element signature="e#197#465#0" expanded="false" />
-                    <element signature="n#!!block;n#translations#0;n#!!top" expanded="false" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
+                    <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
+                    <element signature="e#2294#2295#0" expanded="true" />
+                    <element signature="e#2334#2335#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AllSets.json" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/res/AllSets.json">
-              <provider selected="true" editor-type-id="LargeFileEditor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <file leaf-file-name="KTK.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/res/KTK.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="20">
+                  <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#197#465#0" expanded="false" />
+                    <element signature="n#!!block;n#translations#0;n#!!top" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -204,6 +199,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>toString</find>
+    </findStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -235,19 +235,19 @@
         <option value="$PROJECT_DIR$/src/Core/Main.java" />
         <option value="$PROJECT_DIR$/src/Core/MagicSet.java" />
         <option value="$PROJECT_DIR$/src/Core/DeckLoader.java" />
-        <option value="$PROJECT_DIR$/src/Core/Deck.java" />
         <option value="$PROJECT_DIR$/src/Core/MTGSetDeserializer.java" />
-        <option value="$PROJECT_DIR$/src/Core/MTGCard.java" />
-        <option value="$PROJECT_DIR$/src/Core/MTGSet.java" />
-        <option value="$PROJECT_DIR$/src/Core/MTGSetContainer.java" />
         <option value="$PROJECT_DIR$/src/Core/CardLoader.java" />
+        <option value="$PROJECT_DIR$/src/Core/MTGCard.java" />
+        <option value="$PROJECT_DIR$/src/Core/MTGSetContainer.java" />
+        <option value="$PROJECT_DIR$/src/Core/MTGSet.java" />
+        <option value="$PROJECT_DIR$/src/Core/Deck.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-284" />
-    <option name="y" value="-1088" />
+    <option name="x" value="-266" />
+    <option name="y" value="-1080" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
   </component>
@@ -656,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508320175954</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="[v: 0.0_17-291-1329] Sorting of the sets and cards&#10;Sets are sorted by release date and cards in sets by name">
+      <created>1508329748830</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1508329748830</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -674,8 +681,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11017838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27911857" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -709,11 +717,20 @@
     <MESSAGE value="[v: 0.0_17-286-1536] Removed the code for MTG SDK, in process of replacing with my own" />
     <MESSAGE value="[v: 0.0_17-290-1649] Loading of a single set is now possible, &#10;working on the whole collection" />
     <MESSAGE value="[v: 0.0_17-291-1049] Loading of all sets successful" />
-    <option name="LAST_COMMIT_MESSAGE" value="[v: 0.0_17-291-1049] Loading of all sets successful" />
+    <MESSAGE value="[v: 0.0_17-291-1329] Sorting of the sets and cards&#10;Sets are sorted by release date and cards in sets by name" />
+    <option name="LAST_COMMIT_MESSAGE" value="[v: 0.0_17-291-1329] Sorting of the sets and cards&#10;Sets are sorted by release date and cards in sets by name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Core/MTGSet.java</url>
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -737,10 +754,6 @@
           <caret line="82" column="29" lean-forward="true" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -777,10 +790,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
-            <element signature="method#ParseCardTable#0;class#CardLoader#0" expanded="false" />
             <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
-            <element signature="e#2244#2245#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -791,10 +803,6 @@
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -824,10 +832,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
-            <element signature="method#ParseCardTable#0;class#CardLoader#0" expanded="false" />
             <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
-            <element signature="e#2244#2245#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -838,10 +845,6 @@
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -863,10 +866,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
-            <element signature="method#ParseCardTable#0;class#CardLoader#0" expanded="false" />
             <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
-            <element signature="e#2244#2245#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -877,10 +879,6 @@
           <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,6 +889,10 @@
           <caret line="158" column="20" lean-forward="false" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -913,10 +915,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
-            <element signature="method#ParseCardTable#0;class#CardLoader#0" expanded="false" />
             <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
-            <element signature="e#2244#2245#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -927,6 +928,10 @@
           <caret line="158" column="20" lean-forward="false" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -956,10 +961,6 @@
           <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -981,10 +982,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
-            <element signature="method#ParseCardTable#0;class#CardLoader#0" expanded="false" />
             <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
-            <element signature="e#2244#2245#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -995,6 +995,10 @@
           <caret line="158" column="20" lean-forward="false" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1024,10 +1028,6 @@
           <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1111,14 +1111,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/MTGSetDeserializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#477#485#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/KTK.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="20">
           <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
           <folding>
             <element signature="e#197#465#0" expanded="false" />
             <element signature="n#!!block;n#translations#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/CardLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="57" column="10" lean-forward="false" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
+            <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
+            <element signature="e#2294#2295#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/MTGCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/AllSets.json">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="510">
+          <caret line="57" column="8" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1132,95 +1178,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/Deck.txt">
+    <entry file="file://$PROJECT_DIR$/src/Core/MTGSetContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/AllSets.json">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="153">
-          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/MTGCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+        <state relative-caret-position="486">
+          <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#163#164#0" expanded="true" />
+            <element signature="e#198#199#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/Deck.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/MTGSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="588">
+          <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1061#1062#0" expanded="true" />
             <element signature="e#1095#1096#0" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#1197#1198#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/CardLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CardLoader#0;class#CardLoader#0" expanded="false" />
-            <element signature="method#ParseCardTable#0;class#CardLoader#0" expanded="false" />
-            <element signature="method#LoadFile#0;class#CardLoader#0" expanded="false" />
-            <element signature="e#2244#2245#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/MTGSetDeserializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#477#485#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/MTGSetContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#163#164#0" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="59" column="40" lean-forward="false" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+        <state relative-caret-position="149">
+          <caret line="109" column="12" lean-forward="true" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetCardImage#0;class#Deck#0" expanded="false" />
-            <element signature="method#ProcessLine#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#0;class#Deck#0" expanded="false" />
-            <element signature="method#AddCard#1;class#Deck#0" expanded="false" />
           </folding>
         </state>
       </provider>

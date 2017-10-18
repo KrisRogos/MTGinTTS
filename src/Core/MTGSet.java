@@ -40,8 +40,31 @@ public class MTGSet implements Comparator<MTGSet>, Comparable<MTGSet> {
         Arrays.sort(cards);
     }
 
+
     public MTGCard Find(String name) {
-        return cards[Arrays.binarySearch(cards, name)];
+        int start = 0, end = cards.length - 1;
+
+        while (start <= end) {
+            int pivot = (start + end) / 2;
+            int result = cards[pivot].getName().compareToIgnoreCase(name);
+
+            // the card is earlier
+            if (result < 0) {
+                start = pivot + 1;
+            }
+            // the card is after this
+            else if (result > 0) {
+                end = pivot - 1;
+            }
+            // this is the card
+            else if (result == 0) {
+                return cards[pivot];
+            }
+
+        }
+
+        // card not found
+        return null;
     }
 
 

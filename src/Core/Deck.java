@@ -32,9 +32,12 @@ public class Deck {
     public Deck(String a_DeckFile) {
 
         m_Cards = new Vector<S_DeckCard>();
-//        m_DeckLoader = new CardLoader();
         m_DeckSize = 0;
 
+        // load the card database
+        CardLoader cardLoader = CardLoader.GetDeckLoader();
+
+        // load the deck file
         System.out.println("Loading " + a_DeckFile + " ...");
 
         // load lines from file
@@ -56,13 +59,12 @@ public class Deck {
             e.printStackTrace();;
         }
 
-        // load the card database
-        CardLoader cardLoader = CardLoader.GetDeckLoader();
-
         // convert the lines into cards
         for (String ln: lines ) {
             ProcessLine(ln);
         }
+
+        // find all cards in deck
 
         // create the deck image
         m_Image = new BufferedImage(kWidth, kHeight, BufferedImage.TYPE_INT_RGB);
@@ -164,10 +166,17 @@ public class Deck {
         dc.card = CardLoader.LoadCard(a_Name);
         dc.count = a_Count;
 
-        m_Cards.add(dc);
-        m_DeckSize += a_Count;
+        // if the card wasn't found display an error
+        if (dc.card == null) {
+            System.out.println("Could not find: " + a_Name);
+        }
+        else
+        {
+            m_Cards.add(dc);
+            m_DeckSize += a_Count;
 
-        System.out.println("Added " + a_Count + " " + a_Name + " to the Deck. " + m_Cards.size() + " unique cards found. " + m_DeckSize + " cards in the deck.");
+            System.out.println("Added " + a_Count + " " + dc.card.getName() + " with art by " + dc.card.getArtist() + " to the Deck. " + m_Cards.size() + " unique cards found. " + m_DeckSize + " cards in the deck.");
+        }
     }
 
     public void AddCard (Integer a_Count, String a_Name, String a_Set)

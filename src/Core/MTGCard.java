@@ -3,7 +3,7 @@ package Core;
 import java.awt.image.BufferedImage;
 import java.util.Comparator;
 
-public class MTGCard implements Comparator<MTGCard>, Comparable<MTGCard> {
+public class MTGCard implements Comparator<MTGCard>, Comparable<Object> {
 
     @Override
     public int compare(MTGCard o1, MTGCard o2) throws NullPointerException, ClassCastException {
@@ -11,9 +11,19 @@ public class MTGCard implements Comparator<MTGCard>, Comparable<MTGCard> {
     }
 
     @Override
-    public int compareTo(MTGCard o) throws NullPointerException, ClassCastException  {
-        return this.getName().compareToIgnoreCase(o.getName());
+    public int compareTo(Object o) throws NullPointerException, ClassCastException  {
+            return this.getName().compareToIgnoreCase(o.toString());
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public static int compareTo(MTGCard o1, String o2) throws NullPointerException, ClassCastException  {
+        return o1.getName().compareToIgnoreCase(o2);
+    }
+
 
     public enum  E_CardTypes {
         Land,
@@ -55,7 +65,20 @@ public class MTGCard implements Comparator<MTGCard>, Comparable<MTGCard> {
     private String type;
     private String[] types;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        MTGCard mtgCard = (MTGCard) o;
+
+        return name != null ? name.equals(mtgCard.name) : mtgCard.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
 
     public int getLoyalty() {
         return loyalty;

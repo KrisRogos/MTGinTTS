@@ -13,11 +13,15 @@ public class MTGSetContainer {
     @Override
     public String toString() {
         String res = "";
+
+        int counter = 0;
+
         for (MTGSet set : mtgSets) {
             res += set.toString();
+            counter += set.cards.length;
         }
 
-        return res;
+        return res + "\n found " + counter + " cards";
     }
 
     public void Sort() {
@@ -35,7 +39,9 @@ public class MTGSetContainer {
     public MTGCard Find(String name)
     {
         for (MTGSet set : mtgSets) {
-            return set.Find("name");
+            MTGCard temp = set.Find(name);
+            if (temp != null)
+                return temp;
         }
 
         return null;

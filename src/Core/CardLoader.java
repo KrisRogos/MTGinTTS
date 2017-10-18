@@ -54,6 +54,8 @@ public class CardLoader {
 
         // sort the sets
         k_Sets.SortAll();
+
+        //System.out.println(k_Sets.toString());
     }
 
     private void LoadFile() {
