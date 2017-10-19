@@ -33,10 +33,10 @@ public class Deck {
 
     //private CardLoader m_DeckLoader;
 
-    public Deck(String a_DeckName) {
+    public Deck(String a_DeckName, String a_Directory) {
 
-        String deckFile = "res/" + a_DeckName + ".txt";
-        String imageFile = "res/" + a_DeckName + ".jpg";
+        //String deckFile = "res/" + a_DeckName + ".txt";
+        //String imageFile = "res/" + a_DeckName + ".jpg";
 
         m_Cards = new Vector<S_DeckCard>();
         m_DeckSize = 0;
@@ -45,13 +45,13 @@ public class Deck {
         CardLoader cardLoader = CardLoader.GetDeckLoader();
 
         // load the deck file
-        System.out.println("Loading " + deckFile + " ...");
+        System.out.println("Loading " + a_DeckName + " ...");
 
         // load lines from file
         List<String > lines = new ArrayList<String>();
         try
         {
-            BufferedReader reader = new BufferedReader(new FileReader(deckFile));
+            BufferedReader reader = new BufferedReader(new FileReader(a_DeckName));
             String line;
             while ((line = reader.readLine()) != null)
             {
@@ -62,7 +62,7 @@ public class Deck {
         }
         catch (Exception e)
         {
-            System.err.format("Read exception occurred with %s.", deckFile);
+            System.err.format("Read exception occurred with %s.", a_DeckName);
             e.printStackTrace();;
         }
 
@@ -101,7 +101,7 @@ public class Deck {
 
         // save the image
         try {
-            ImageIO.write(m_Image, "JPG", new File (imageFile));
+            ImageIO.write(m_Image, "JPG", new File (a_Directory, "DeckImage.jpg"));
             System.out.println("Image saved");
         } catch (IOException e) {
             e.printStackTrace();

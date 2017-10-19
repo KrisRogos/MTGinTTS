@@ -8,6 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.net.URI;
+
 public class Main extends Application {
 
     @Override
@@ -17,7 +22,22 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
-        Deck dck = new Deck("Deck");
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File("."));
+        chooser.setDialogTitle("Chose deck list");;
+        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+
+            Deck dck = new Deck(chooser.getSelectedFile().toString(), chooser.getCurrentDirectory().toString());
+        }
+        else {
+            System.out.println("No Selection ");
+        }
+
+
+
 
     }
 
