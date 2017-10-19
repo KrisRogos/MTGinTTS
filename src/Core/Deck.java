@@ -16,11 +16,11 @@ import java.util.Vector;
 
 public class Deck {
 
-    private int kCardWidth = 223;
-    private int kCardHeight = 311;
+    static final private int kCardWidth = 223;
+    static final private int kCardHeight = 311;
 
-    private int kWidth = kCardWidth*10;
-    private int kHeight = kCardHeight*7;
+    static final public int kWidth = kCardWidth*10;
+    static final public int kHeight = kCardHeight*7;
 
     public class S_DeckCard {
         public MTGCard card;
