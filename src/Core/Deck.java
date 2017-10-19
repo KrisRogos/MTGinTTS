@@ -13,31 +13,62 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.locks.Lock;
 
-public class Deck {
+public class Deck implements Runnable {
 
-    static final private int kCardWidth = 223;
-    static final private int kCardHeight = 311;
+    public enum LoadingState {
+        NOT_READY,
+        SETTING_UP,
+        IDLE,
+        LOADING_FILE,
+        LOADING_CARD_DATA,
+        LOADING_CARD_IMAGES,
+        SAVING_IMAGE,
+        SAVING_DECK,
+        CLEAN_UP
+    }
 
-    static final public int kWidth = kCardWidth*10;
-    static final public int kHeight = kCardHeight*7;
+    // exception thrown if there is an issue loading in the file
+    public class DeckLoaderException extends Exception {
 
+    }
+
+    // structure which holds the cards in the deck
     public class S_DeckCard {
         public MTGCard card;
         public Integer count;
     }
 
-    private Vector<S_DeckCard> m_Cards;
-    private int m_DeckSize;
-    private BufferedImage m_Image;
+    private Thread t; // thread
+    private boolean m_Alive; // thread status
+    private String m_DeckFile; // path to deck file
+    private String m_OutDir; // path to output directory
+    private LoadingState m_State; // status of the loader
+    public Lock m_StateLock;  // lock for the loader status
+    private boolean m_IsComplete; // indicator if the deck is ready for export
 
-    //private CardLoader m_DeckLoader;
+    private List<String> m_DeckList; // lines of the deck list
+    private int m_NumberOfLines;
+    private int m_CurrentLine;
+
+    static final private int kCardWidth = 223; // width of one card
+    static final private int kCardHeight = 311; // height of one card
+    static final public int kWidth = kCardWidth*10; // width of the deck image
+    static final public int kHeight = kCardHeight*7; // height of the deck image
+
+    private Vector<S_DeckCard> m_Cards; // unique cards in deck
+    private int m_DeckSize; // total number of cards in the deck (including repeated ones)
+    private BufferedImage m_Image; // deck image
+
+    public LoadingState getState() {
+        return m_State;
+    }
 
     public Deck(String a_DeckName, String a_Directory) {
 
-        //String deckFile = "res/" + a_DeckName + ".txt";
-        //String imageFile = "res/" + a_DeckName + ".jpg";
-
+        m_DeckFile = a_DeckName;
+        m_OutDir = a_Directory;
         m_Cards = new Vector<S_DeckCard>();
         m_DeckSize = 0;
 
@@ -45,26 +76,9 @@ public class Deck {
         CardLoader cardLoader = CardLoader.GetDeckLoader();
 
         // load the deck file
-        System.out.println("Loading " + a_DeckName + " ...");
+        System.out.println("Loading " + m_DeckFile + " ...");
 
-        // load lines from file
-        List<String > lines = new ArrayList<String>();
-        try
-        {
-            BufferedReader reader = new BufferedReader(new FileReader(a_DeckName));
-            String line;
-            while ((line = reader.readLine()) != null)
-            {
-                lines.add(line);
-            }
 
-            reader.close();
-        }
-        catch (Exception e)
-        {
-            System.err.format("Read exception occurred with %s.", a_DeckName);
-            e.printStackTrace();;
-        }
 
         // convert the lines into cards
         for (String ln: lines ) {
@@ -101,7 +115,7 @@ public class Deck {
 
         // save the image
         try {
-            ImageIO.write(m_Image, "JPG", new File (a_Directory, "DeckImage.jpg"));
+            ImageIO.write(m_Image, "JPG", new File (m_OutDir, "DeckImage.jpg"));
             System.out.println("Image saved");
         } catch (IOException e) {
             e.printStackTrace();
@@ -109,11 +123,104 @@ public class Deck {
         }
     }
 
+
+    @Override
+    public void run() {
+        while (m_Alive) {
+            try {
+                if(m_StateLock.tryLock()) {
+                    try {
+                        switch (m_State) {
+                            case NOT_READY:
+                            case SETTING_UP:
+                                Thread.sleep(50);
+                                break;
+                            case IDLE:
+                                if (!m_IsComplete && m_DeckFile != null && m_DeckFile != "")
+                                {
+                                    m_State = LoadingState.LOADING_FILE;
+                                }
+                                break;
+                            case LOADING_FILE:
+                                LoadFile();
+                                m_NumberOfLines = m_DeckList.size();
+                                m_CurrentLine = 0;
+                                m_State = LoadingState.LOADING_CARD_DATA;
+                                break;
+                            case LOADING_CARD_DATA:
+                                if (m_CurrentLine < m_NumberOfLines) {
+                                    ProcessLine(m_DeckList.get(m_CurrentLine));
+                                    m_CurrentLine++;
+                                }
+                                else {
+                                    m_State = LoadingState.LOADING_CARD_IMAGES;
+                                }
+                                break;
+                            case LOADING_CARD_IMAGES:
+//TODO
+                            case SAVING_IMAGE:
+//TODO
+                            case SAVING_DECK:
+//TODO
+                            case CLEAN_UP:
+                                //TODO m_Task = new Deck(m_DeckFile, m_OutDir);
+                                m_IsComplete = true;
+                                m_State = LoadingState.IDLE;
+                                break;
+                        }
+                    }
+                    finally {
+                        m_StateLock.unlock();
+                    }
+
+                }
+                Thread.sleep(50);
+            }
+            catch (Exception e) {
+                m_Alive = false;
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void start() {
+        m_IsComplete = false;
+        m_State = LoadingState.IDLE;
+
+        if (t == null) {
+            t = new Thread(this);
+            t.start();
+        }
+    }
+
+    public boolean IsTaskComplete() {
+        return m_IsComplete;
+    }
+
+    private void LoadFile() {
+        // load lines from file
+        m_DeckList = new ArrayList<String>();
+        try
+        {
+            BufferedReader reader = new BufferedReader(new FileReader(m_DeckFile));
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                m_DeckList.add(line);
+            }
+
+            reader.close();
+        }
+        catch (Exception e)
+        {
+            System.err.format("Read exception occurred with %s.", m_DeckFile);
+            e.printStackTrace();;
+        }
+    }
+
     private void GetCardImage(Graphics g, int xLoc, int yLoc, int id)
     {
         try {
-            //File f = new File(m_Cards.elementAt(id).card.getImageUrl());
-
             System.out.println("Drawing image for " + m_Cards.elementAt(id).card.getName());
             URL url = new URL ("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=" + m_Cards.elementAt(id).card.getMultiverseid() + "&type=card");
             BufferedImage cardImage = ImageIO.read(url);
@@ -122,9 +229,6 @@ public class Deck {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 
 

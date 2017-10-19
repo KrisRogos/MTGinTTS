@@ -35,7 +35,13 @@ public class DeckLoaderThread implements Runnable {
     public DeckLoaderThread(String a_DeckFile, String a_OutputDir) {
         m_Alive = false;
         m_StateLock = new ReentrantLock();
-        m_State = LoaderState.NOT_READY;
+        m_StateLock.lock();
+        try {
+            m_State = LoaderState.NOT_READY;
+        }
+        finally {
+            m_StateLock.unlock();
+        }
         m_IsComplete = true;
 
         m_DeckFile = a_DeckFile;
@@ -48,23 +54,32 @@ public class DeckLoaderThread implements Runnable {
     public void run() {
         while (m_Alive) {
             try {
-                switch (m_State) {
-                    case NOT_READY:
-                    case SETTING_UP:
-                        Thread.sleep(50);
-                        break;
-                    case IDLE:
-                        if (!m_IsComplete && m_DeckFile != null && m_DeckFile != "")
-                        {
-                            m_State = LoaderState.WORKING;
+                if(m_StateLock.tryLock()) {
+                    try {
+                        switch (m_State) {
+                            case NOT_READY:
+                            case SETTING_UP:
+                                Thread.sleep(50);
+                                break;
+                            case IDLE:
+                                if (!m_IsComplete && m_DeckFile != null && m_DeckFile != "")
+                                {
+                                    m_State = LoaderState.WORKING;
+                                }
+                                break;
+                            case WORKING:
+                                m_Task = new Deck(m_DeckFile, m_OutDir);
+                                m_IsComplete = true;
+                                m_State = LoaderState.IDLE;
+                                break;
                         }
-                        break;
-                    case WORKING:
-                        m_Task = new Deck(m_DeckFile, m_OutDir);
-                        m_IsComplete = true;
-                        m_State = LoaderState.IDLE;
-                        break;
+                    }
+                    finally {
+                        m_StateLock.unlock();
+                    }
+
                 }
+                Thread.sleep(50);
             }
             catch (Exception e) {
                 m_Alive = false;
@@ -72,7 +87,7 @@ public class DeckLoaderThread implements Runnable {
             }
         }
     }
-
+/*
     public void start() {
         m_IsComplete = false;
         m_State = LoaderState.IDLE;
@@ -95,7 +110,7 @@ public class DeckLoaderThread implements Runnable {
         else {
             throw new DeckLoaderException();
         }
-    }
+    }*/
 
 
 }
