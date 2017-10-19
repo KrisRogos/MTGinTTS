@@ -60,6 +60,7 @@ public class Deck implements Runnable {
     private Vector<S_DeckCard> m_Cards; // unique cards in deck
     private int m_DeckSize; // total number of cards in the deck (including repeated ones)
     private BufferedImage m_Image; // deck image
+    private Graphics m_Graphics; // used to draw the card images onto the deck image
 
     public LoadingState getState() {
         return m_State;
@@ -78,23 +79,15 @@ public class Deck implements Runnable {
         // load the deck file
         System.out.println("Loading " + m_DeckFile + " ...");
 
-
-
-        // convert the lines into cards
-        for (String ln: lines ) {
-            ProcessLine(ln);
-        }
-
         // create the deck image
         m_Image = new BufferedImage(kWidth, kHeight, BufferedImage.TYPE_INT_RGB);
-
-        Graphics g = m_Image.getGraphics();
+        m_Graphics = m_Image.getGraphics();
 
         // process the images into one
         int xLoc = 0, yLoc = 0;
         for (int i = 0; i < m_Cards.size(); i++)
         {
-            GetCardImage(g, xLoc, yLoc, i);
+            GetCardImage(m_Graphics, xLoc, yLoc, i);
 
             // next column
             xLoc++;
@@ -133,26 +126,35 @@ public class Deck implements Runnable {
                         switch (m_State) {
                             case NOT_READY:
                             case SETTING_UP:
+                                // wait until ready
                                 Thread.sleep(50);
                                 break;
                             case IDLE:
+                                // wait for a task
                                 if (!m_IsComplete && m_DeckFile != null && m_DeckFile != "")
                                 {
                                     m_State = LoadingState.LOADING_FILE;
                                 }
                                 break;
                             case LOADING_FILE:
+                                // read in the file in to m_DeckList
                                 LoadFile();
+
+                                // the number of lines and current line are prepared to be used by the Loading Card Data state
                                 m_NumberOfLines = m_DeckList.size();
                                 m_CurrentLine = 0;
+
+                                // move to next state
                                 m_State = LoadingState.LOADING_CARD_DATA;
                                 break;
                             case LOADING_CARD_DATA:
+                                // as long as there are more lines to process, process the next one and move on
                                 if (m_CurrentLine < m_NumberOfLines) {
                                     ProcessLine(m_DeckList.get(m_CurrentLine));
                                     m_CurrentLine++;
                                 }
                                 else {
+                                    // move to image drawing
                                     m_State = LoadingState.LOADING_CARD_IMAGES;
                                 }
                                 break;
