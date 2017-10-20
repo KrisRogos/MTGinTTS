@@ -16,14 +16,14 @@ import java.io.File;
 
 public class Main extends Application {
 
-    static String gFileName;
-    static String gSaveDir;
-    DeckLoaderThread deckLoaderThread;
+    static SimpleStringProperty gFileName;
+    static SimpleStringProperty gSaveDir;
+    Deck deckThread;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        int WindowWidth = Deck.kWidth/2 + 4;
-        int WindowHalfWidth = WindowWidth/2;
+        int WindowWidth = (Deck.kWidth/2) + 4;
+        int WindowHalfWidth = WindowWidth/2 - 1;
 
         BorderPane root = new BorderPane();
         primaryStage.setScene(new Scene(root, WindowWidth, Deck.kHeight/4+100));
@@ -52,15 +52,17 @@ public class Main extends Application {
 
         // the left and right hand panes
         VBox vBox_left = new VBox();
-        vBox_left.setMaxWidth(WindowHalfWidth);
+        vBox_left.setPrefWidth(WindowHalfWidth);
         VBox vBox_right = new VBox();
-        vBox_right.setMaxWidth(WindowHalfWidth);
+        vBox_right.setPrefWidth(WindowHalfWidth);
         hBox_outer.getChildren().addAll(vBox_left, vBox_right);
 
         // elements for file input
         HBox hBox_DeckLoc = new HBox();
         Label label_DeckLocInfo = new Label("Deck file: ");
-        TextField textField_DeckLoc = new TextField((gFileName == null) ? "not set" : gFileName);
+        gFileName = new SimpleStringProperty();
+        TextField textField_DeckLoc = new TextField((gFileName == null) ? "not set" : gFileName.get());
+        textField_DeckLoc.textProperty().bindBidirectional(gFileName);
         Button button_DeckLoc = new Button("Change");
         button_DeckLoc.setOnAction(actionEvent -> OpenDeckFile());
         HBox.setHgrow(textField_DeckLoc, Priority.ALWAYS);
@@ -70,8 +72,9 @@ public class Main extends Application {
         // elements for file input
         HBox hBox_SaveLoc = new HBox();
         Label label_SaveLocInfo = new Label("Save to: ");
-        TextField textField_SaveLoc = new TextField((gSaveDir == null) ? "not set" : gSaveDir);
-        label_SaveLocInfo.textProperty().bindBidirectional(new SimpleStringProperty(gSaveDir));
+        gSaveDir = new SimpleStringProperty();
+        TextField textField_SaveLoc = new TextField((gSaveDir == null) ? "not set" : gSaveDir.get());
+        textField_SaveLoc.textProperty().bindBidirectional(gSaveDir);
         Button button_SaveLoc = new Button("Change");
         button_SaveLoc.setOnAction(actionEvent -> OpenSaveDir());
         HBox.setHgrow(textField_SaveLoc, Priority.ALWAYS);
@@ -102,11 +105,11 @@ public class Main extends Application {
         chooser.setAcceptAllFileFilterUsed(false);
 
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            gFileName = chooser.getSelectedFile().toString();
-            gSaveDir = chooser.getCurrentDirectory().toString();
+            gFileName.set(chooser.getSelectedFile().toString());
+            gSaveDir.set(chooser.getCurrentDirectory().toString());
 
-            deckLoaderThread = new DeckLoaderThread(gFileName, gSaveDir);
-            deckLoaderThread.start();
+            deckThread = new Deck(gFileName.get() , gSaveDir.get());
+            deckThread.start();
         }
         else {
             System.out.println("No Selection ");
@@ -121,7 +124,7 @@ public class Main extends Application {
         chooser.setAcceptAllFileFilterUsed(false);
 
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            gSaveDir = chooser.getCurrentDirectory().toString();
+            gSaveDir.set(chooser.getCurrentDirectory().toString());
         }
         else {
             System.out.println("No Selection ");

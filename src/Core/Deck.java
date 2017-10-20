@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Deck implements Runnable {
 
@@ -38,19 +39,21 @@ public class Deck implements Runnable {
     public class S_DeckCard {
         public MTGCard card;
         public Integer count;
+        public int xLoc;
+        public int yLoc;
     }
 
     private Thread t; // thread
     private boolean m_Alive; // thread status
     private String m_DeckFile; // path to deck file
     private String m_OutDir; // path to output directory
-    private LoadingState m_State; // status of the loader
+    private LoadingState m_State = LoadingState.NOT_READY; // status of the loader
     public Lock m_StateLock;  // lock for the loader status
     private boolean m_IsComplete; // indicator if the deck is ready for export
 
     private List<String> m_DeckList; // lines of the deck list
-    private int m_NumberOfLines;
-    private int m_CurrentLine;
+    private int m_NumberOfLines; // count of lines in the deck list
+    private int m_CurrentLine; // currently processed line from the deck list
 
     static final private int kCardWidth = 223; // width of one card
     static final private int kCardHeight = 311; // height of one card
@@ -58,6 +61,7 @@ public class Deck implements Runnable {
     static final public int kHeight = kCardHeight*7; // height of the deck image
 
     private Vector<S_DeckCard> m_Cards; // unique cards in deck
+    private int m_CurrentCard; // card for which the image is being currently processed
     private int m_DeckSize; // total number of cards in the deck (including repeated ones)
     private BufferedImage m_Image; // deck image
     private Graphics m_Graphics; // used to draw the card images onto the deck image
@@ -67,53 +71,23 @@ public class Deck implements Runnable {
     }
 
     public Deck(String a_DeckName, String a_Directory) {
-
+        m_State = LoadingState.SETTING_UP;
         m_DeckFile = a_DeckName;
         m_OutDir = a_Directory;
         m_Cards = new Vector<S_DeckCard>();
         m_DeckSize = 0;
 
-        // load the card database
-        CardLoader cardLoader = CardLoader.GetDeckLoader();
+        m_Alive = true;
+        m_StateLock = new ReentrantLock();
 
-        // load the deck file
-        System.out.println("Loading " + m_DeckFile + " ...");
+        // load the card database
+        System.out.println("Opening card database");
+        CardLoader cardLoader = CardLoader.GetDeckLoader();
 
         // create the deck image
         m_Image = new BufferedImage(kWidth, kHeight, BufferedImage.TYPE_INT_RGB);
         m_Graphics = m_Image.getGraphics();
-
-        // process the images into one
-        int xLoc = 0, yLoc = 0;
-        for (int i = 0; i < m_Cards.size(); i++)
-        {
-            GetCardImage(m_Graphics, xLoc, yLoc, i);
-
-            // next column
-            xLoc++;
-
-            // next row
-            if (xLoc > 9)
-            {
-                xLoc = 0;
-                yLoc++;
-
-                // overflow
-                if (yLoc > 6)
-                {
-                    break;
-                }
-            }
-        }
-
-        // save the image
-        try {
-            ImageIO.write(m_Image, "JPG", new File (m_OutDir, "DeckImage.jpg"));
-            System.out.println("Image saved");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Image failed to save");
-        }
+        m_State = LoadingState.IDLE;
     }
 
 
@@ -133,6 +107,7 @@ public class Deck implements Runnable {
                                 // wait for a task
                                 if (!m_IsComplete && m_DeckFile != null && m_DeckFile != "")
                                 {
+                                    System.out.println("Loading " + m_DeckFile);
                                     m_State = LoadingState.LOADING_FILE;
                                 }
                                 break;
@@ -145,6 +120,7 @@ public class Deck implements Runnable {
                                 m_CurrentLine = 0;
 
                                 // move to next state
+                                System.out.println("Looking for card data ");
                                 m_State = LoadingState.LOADING_CARD_DATA;
                                 break;
                             case LOADING_CARD_DATA:
@@ -155,17 +131,41 @@ public class Deck implements Runnable {
                                 }
                                 else {
                                     // move to image drawing
+                                    System.out.println("Looking for card images");
+                                    m_CurrentCard = 0;
                                     m_State = LoadingState.LOADING_CARD_IMAGES;
                                 }
                                 break;
                             case LOADING_CARD_IMAGES:
-//TODO
+                                // process one card image at a time
+                                if (m_CurrentCard < m_Cards.size()) {
+                                    GetCardImage(m_Graphics, m_Cards.get(m_CurrentCard));
+                                    m_CurrentCard++;
+                                }
+                                else {
+                                    // move to image export
+                                    System.out.println("Saving image");
+                                    m_State = LoadingState.SAVING_IMAGE;
+                                }
+                                break;
                             case SAVING_IMAGE:
-//TODO
+                                // save the image
+                                try {
+                                    ImageIO.write(m_Image, "JPG", new File (m_OutDir, "DeckImage.jpg"));
+                                    System.out.println("Image saved");
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    System.out.println("Image failed to save");
+                                }
+
+                                // move to deck saving
+                                System.out.println("Saving deck file");
+                                m_State = LoadingState.SAVING_DECK;
                             case SAVING_DECK:
-//TODO
+                                //TODO implement deck saving to json feature
+                                // move to clean up
+                                m_State = LoadingState.CLEAN_UP;
                             case CLEAN_UP:
-                                //TODO m_Task = new Deck(m_DeckFile, m_OutDir);
                                 m_IsComplete = true;
                                 m_State = LoadingState.IDLE;
                                 break;
@@ -186,12 +186,14 @@ public class Deck implements Runnable {
     }
 
     public void start() {
-        m_IsComplete = false;
-        m_State = LoadingState.IDLE;
+        if (m_State == LoadingState.IDLE) {
+            m_IsComplete = false;
+            System.out.println("Starting " + m_DeckFile + " loader");
 
-        if (t == null) {
-            t = new Thread(this);
-            t.start();
+            if (t == null) {
+                t = new Thread(this);
+                t.start();
+            }
         }
     }
 
@@ -220,6 +222,20 @@ public class Deck implements Runnable {
         }
     }
 
+    private void GetCardImage(Graphics g, S_DeckCard card)
+    {
+        try {
+            System.out.println("Drawing image for " + card.card.getName());
+            URL url = new URL ("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=" + card.card.getMultiverseid() + "&type=card");
+            BufferedImage cardImage = ImageIO.read(url);
+
+            g.drawImage(cardImage, card.xLoc * kCardWidth, card.yLoc * kCardHeight, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Deprecated
     private void GetCardImage(Graphics g, int xLoc, int yLoc, int id)
     {
         try {
@@ -276,6 +292,8 @@ public class Deck implements Runnable {
         S_DeckCard dc = new S_DeckCard();
         dc.card = CardLoader.LoadCard(a_Name);
         dc.count = a_Count;
+        dc.xLoc = m_CurrentLine%10;
+        dc.yLoc = m_CurrentLine/10;
 
         // if the card wasn't found display an error
         if (dc.card == null) {
