@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+@Deprecated
 public class DeckLoaderThread implements Runnable {
 
     public enum LoaderState {

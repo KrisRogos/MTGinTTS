@@ -3,6 +3,7 @@ package Core;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -59,6 +60,7 @@ public class Main extends Application {
 
         // elements for file input
         HBox hBox_DeckLoc = new HBox();
+        hBox_DeckLoc.setSpacing(10);
         Label label_DeckLocInfo = new Label("Deck file: ");
         gFileName = new SimpleStringProperty();
         TextField textField_DeckLoc = new TextField((gFileName == null) ? "not set" : gFileName.get());
@@ -71,6 +73,7 @@ public class Main extends Application {
 
         // elements for file input
         HBox hBox_SaveLoc = new HBox();
+        hBox_SaveLoc.setSpacing(10);
         Label label_SaveLocInfo = new Label("Save to: ");
         gSaveDir = new SimpleStringProperty();
         TextField textField_SaveLoc = new TextField((gSaveDir == null) ? "not set" : gSaveDir.get());
@@ -81,7 +84,21 @@ public class Main extends Application {
         textField_SaveLoc.setMaxWidth(Double.MAX_VALUE);
         hBox_SaveLoc.getChildren().addAll(label_SaveLocInfo, textField_SaveLoc, button_SaveLoc);
 
-        vBox_left.getChildren().addAll(hBox_DeckLoc, hBox_SaveLoc);
+        // start button
+        HBox hBox_StartLoading = new HBox();
+        hBox_StartLoading.setPrefWidth(WindowHalfWidth);
+        Button button_StartLoading = new Button ("Load deck");
+        button_StartLoading.setOnAction(actionEvent -> LoadDeck());
+        hBox_StartLoading.setAlignment(Pos.BOTTOM_RIGHT);
+        hBox_StartLoading.setSpacing(10);
+        hBox_StartLoading.getChildren().addAll(button_StartLoading);
+
+        // display loader progress
+        VBox vBox_Progress = new VBox();
+        Label label_Progress = new Label("Waiting");
+
+
+        vBox_left.getChildren().addAll(hBox_DeckLoc, hBox_SaveLoc, hBox_StartLoading);
 
 
 
@@ -97,6 +114,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    private void LoadDeck() {
+        deckThread = new Deck(gFileName.get() , gSaveDir.get());
+        deckThread.start();
+    }
+
+
     private void OpenDeckFile() {
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File("c:\\"));
@@ -107,9 +130,6 @@ public class Main extends Application {
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             gFileName.set(chooser.getSelectedFile().toString());
             gSaveDir.set(chooser.getCurrentDirectory().toString());
-
-            deckThread = new Deck(gFileName.get() , gSaveDir.get());
-            deckThread.start();
         }
         else {
             System.out.println("No Selection ");

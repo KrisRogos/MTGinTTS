@@ -285,6 +285,10 @@ public class Deck implements Runnable {
             AddCard(cardCount, a_Line);
 
         }
+        else
+        {
+
+        }
     }
 
     public void AddCard (Integer a_Count, String a_Name)
@@ -292,8 +296,8 @@ public class Deck implements Runnable {
         S_DeckCard dc = new S_DeckCard();
         dc.card = CardLoader.LoadCard(a_Name);
         dc.count = a_Count;
-        dc.xLoc = m_CurrentLine%10;
-        dc.yLoc = m_CurrentLine/10;
+        dc.xLoc = m_Cards.size()%10;
+        dc.yLoc = m_Cards.size()/10;
 
         // if the card wasn't found display an error
         if (dc.card == null) {
