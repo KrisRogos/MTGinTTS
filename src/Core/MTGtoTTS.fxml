@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0">
+      <center>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+          <children>
+            <SplitPane dividerPositions="0.35014409221902015" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="618.0">
+                  <children>
+                    <TabPane layoutX="0.0" layoutY="0.0" prefHeight="220.0" prefWidth="620.0" tabClosingPolicy="UNAVAILABLE">
+                      <tabs>
+                        <Tab text="Add deck list">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="166.0" prefWidth="620.0">
+                              <children>
+                                <VBox layoutX="13.0" layoutY="14.0" prefHeight="134.0" prefWidth="591.0">
+                                  <children>
+                                    <GridPane hgap="10.0" vgap="10.0" VBox.vgrow="NEVER">
+                                      <children>
+                                        <Label text="Deck File" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <Button mnemonicParsing="false" text="Select" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                        <Button mnemonicParsing="false" text="Select" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+                                        <Label text="Save folder" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <Label text="Save name" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="76.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" maxWidth="460.0" minWidth="10.0" prefWidth="371.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="99.0" />
+                                      </columnConstraints>
+                                      <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x1" />
+                                      </padding>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                      <VBox.margin>
+                                        <Insets left="5.0" />
+                                      </VBox.margin>
+                                    </GridPane>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Add cards">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <Label layoutX="14.0" layoutY="13.0" prefHeight="162.0" prefWidth="590.0" text="This is a planned feature, if you want to see it implemented sooner follow it in issue tracker on GitHub!" textAlignment="CENTER" />
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="LOG">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TextArea disable="true" layoutX="14.0" layoutY="14.0" prefHeight="161.0" prefWidth="592.0" wrapText="true" />
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                      </tabs>
+                    </TabPane>
+                  </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="618.0">
+                  <children>
+                    <VBox id="VBox" alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="5.0">
+                      <children>
+                        <HBox alignment="CENTER" minHeight="35.0" prefHeight="35.0" prefWidth="592.0" spacing="20.0">
+                          <children>
+                            <Label text="Progress:" />
+                            <ProgressBar prefWidth="342.0" progress="0.0" HBox.hgrow="ALWAYS">
+                              <HBox.margin>
+                                <Insets />
+                              </HBox.margin>
+                            </ProgressBar>
+                            <Button mnemonicParsing="false" text="Start importing" />
+                          </children>
+                          <padding>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x1" />
+                          </padding>
+                        </HBox>
+                        <ListView orientation="VERTICAL" prefHeight="381.0" prefWidth="592.0" VBox.vgrow="ALWAYS" />
+                      </children>
+                    </VBox>
+                  </children>
+                </AnchorPane>
+              </items>
+            </SplitPane>
+            <TabPane prefHeight="200.0" prefWidth="-1.0" tabClosingPolicy="UNAVAILABLE" HBox.hgrow="ALWAYS">
+              <tabs>
+                <Tab text="Card preview">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="637.0" prefWidth="632.0">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0">
+                              <children>
+                                <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2177.0" prefWidth="2230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <children>
+                                    <ImageView fitHeight="311.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+                                      <image>
+                                        <Image url="file:/C:/Users/Admin/Downloads/Image.jpg" />
+                                      </image>
+                                    </ImageView>
+                                    <SplitMenuButton mnemonicParsing="false" text="SplitMenuButton" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                      </items>
+                                    </SplitMenuButton>
+                                  </children>
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                </GridPane>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Deck Preview">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <VBox id="VBox" alignment="CENTER" layoutX="0.0" layoutY="0.0" padding="$x1" prefHeight="665.0" prefWidth="660.0" spacing="5.0">
+                          <children>
+                            <HBox id="HBox" alignment="CENTER" padding="$x1" spacing="5.0">
+                              <children>
+                                <Label prefWidth="56.0" text="Scale: " />
+                                <Slider prefWidth="566.0" />
+                              </children>
+                            </HBox>
+                            <ScrollPane prefHeight="626.0" prefWidth="632.0000999999975">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0">
+                                  <children>
+                                    <ImageView fitHeight="2177.0" fitWidth="2230.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                        <Image url="file:/C:/Users/Admin/Downloads/DeckImage.jpg" />
+                                      </image>
+                                    </ImageView>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </ScrollPane>
+                          </children>
+                        </VBox>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Json preview">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="636.0" prefWidth="632.0" wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </HBox>
+      </center>
+      <top>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Import Deck" />
+                <MenuItem mnemonicParsing="false" text="Save Deck" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Add Card" />
+                <MenuItem mnemonicParsing="false" text="Add Token" />
+                <MenuItem mnemonicParsing="false" text="Remove Card" />
+                <MenuItem mnemonicParsing="false" text="Clear deck" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Changelog" />
+                <MenuItem mnemonicParsing="false" text="GitHub" />
+                <MenuItem mnemonicParsing="false" text="About" />
+                <CheckMenuItem mnemonicParsing="false" text="Show dev log" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
