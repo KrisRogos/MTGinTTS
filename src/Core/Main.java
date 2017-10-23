@@ -101,16 +101,6 @@ public class Main extends Application {
         vBox_left.getChildren().addAll(hBox_DeckLoc, hBox_SaveLoc, hBox_StartLoading);
 
 
-
-
-
-
-
-
-
-
-
-
         primaryStage.show();
     }
 
