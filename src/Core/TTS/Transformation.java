@@ -11,6 +11,18 @@ public class Transformation {
     private double scaleY;
     private double scaleZ;
 
+    public Transformation(double posX, double posY, double posZ, double rotX, double rotY, double rotZ, double scaleX, double scaleY, double scaleZ) {
+        this.posX = posX;
+        this.posY = posY;
+        this.posZ = posZ;
+        this.rotX = rotX;
+        this.rotY = rotY;
+        this.rotZ = rotZ;
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+        this.scaleZ = scaleZ;
+    }
+
     public double getPosX() {
         return posX;
     }

@@ -1,5 +1,6 @@
 package Core;
 
+import Core.TTS.SavedObject;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import javax.imageio.ImageIO;
@@ -26,7 +27,8 @@ public class Deck implements Runnable {
         LOADING_CARD_DATA,
         LOADING_CARD_IMAGES,
         SAVING_IMAGE,
-        SAVING_DECK,
+        SAVING_DECK_CONVERSION,
+        SAVING_DECK_EXPORT,
         CLEAN_UP
     }
 
@@ -66,6 +68,8 @@ public class Deck implements Runnable {
     private BufferedImage m_Image; // deck image
     private Graphics m_Graphics; // used to draw the card images onto the deck image
 
+    private SavedObject m_SaveObject; // stores the deck in a format friendly to json export
+
     public LoadingState getState() {
         return m_State;
     }
@@ -76,6 +80,7 @@ public class Deck implements Runnable {
         m_OutDir = a_Directory;
         m_Cards = new Vector<S_DeckCard>();
         m_DeckSize = 0;
+        m_SaveObject = new SavedObject();
 
         m_Alive = true;
         m_StateLock = new ReentrantLock();
@@ -160,11 +165,24 @@ public class Deck implements Runnable {
 
                                 // move to deck saving
                                 System.out.println("Saving deck file");
-                                m_State = LoadingState.SAVING_DECK;
-                            case SAVING_DECK:
+                                m_CurrentCard = 0;
+                                m_State = LoadingState.SAVING_DECK_CONVERSION;
+                            case SAVING_DECK_CONVERSION:
+                                // set up the save structure
+
+
+                                // process one unique card at a time
+
                                 //TODO implement deck saving to json feature
+
+
+                                // move to clean up
+                                m_State = LoadingState.SAVING_DECK_EXPORT;
+                                break;
+                            case SAVING_DECK_EXPORT:
                                 // move to clean up
                                 m_State = LoadingState.CLEAN_UP;
+                                break;
                             case CLEAN_UP:
                                 m_IsComplete = true;
                                 m_State = LoadingState.IDLE;

@@ -14,6 +14,22 @@ public class SavedObject {
     private String TabStates;
     private String VersionNumber;
 
+    public SavedObject() {
+        SaveName = "";
+        GameMode = "";
+        Date = "";
+        Table = "";
+        Sky = "";
+        Note = "";
+        Rules = "";
+        LuaScript = "";
+        LuaScriptState = "";
+        ObjectStates = new ObjectState[1];
+        ObjectStates[0] = new ObjectState();
+        TabStates = "";
+        VersionNumber = "";
+    }
+
     public String getSaveName() {
         return SaveName;
     }
